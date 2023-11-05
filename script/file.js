@@ -7,21 +7,20 @@ function addPost() {
 
     if (name && group && date && imageInput.files.length > 0 && link) {
         var imageFile = imageInput.files[0];
-        var postDiv = document.createElement("div");
-        postDiv.classList.add("post");
 
-        var postContent = `
-            <p><strong>이름:</strong> ${name}</p>
-            <p><strong>그룹:</strong> ${group}</p>
-            <p><strong>날짜:</strong> ${date}</p>
-            <img src="${URL.createObjectURL(imageFile)}" alt="게시물 이미지" style="width: 567px; height: 667px;">
-            <p><strong>링크:</strong> <a href="${link}" target="_blank">${link}</a></p>
-        `;
+        // 게시물 데이터를 생성
+        var post = {
+            name: name,
+            group: group,
+            date: date,
+            imageUrl: URL.createObjectURL(imageFile),
+            link: link
+        };
 
-        postDiv.innerHTML = postContent;
-
-        var postsContainer = document.getElementById("posts");
-        postsContainer.appendChild(postDiv);
+        // 로컬 스토리지에 게시물 데이터 저장
+        var posts = JSON.parse(localStorage.getItem("posts")) || [];
+        posts.push(post);
+        localStorage.setItem("posts", JSON.stringify(posts));
 
         // 입력 필드 초기화
         document.getElementById("name").value = "";
@@ -29,10 +28,31 @@ function addPost() {
         document.getElementById("date").value = "";
         imageInput.value = ""; // 이미지 파일 선택란 초기화
         document.getElementById("link").value = "";
-        // 업로드 이미지 초기화
+
+        // 이미지 초기화
         document.getElementById("uploaded-image").src = "upload.png";
+
+        // 게시물 추가 후 "추천 게시물" 페이지로 이동
+        window.location.href = "push.html";
     }
 }
+
+function deletePost(index) {
+    var posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    if (index >= 0 && index < posts.length) {
+        // 선택한 게시물 삭제
+        posts.splice(index, 1);
+
+        // 로컬 스토리지에서 업데이트된 게시물 데이터 저장
+        localStorage.setItem("posts", JSON.stringify(posts));
+
+        // 페이지 새로고침
+        location.reload();
+    }
+}
+
+
 
 // 이미지 파일 업로드 시 이미지 미리보기
 document.getElementById("image").addEventListener("change", function() {
