@@ -1,0 +1,62 @@
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+#post-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#post-form .left,
+#post-form .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.image-button {
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.image-button input[type="file"] {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#post-form img {
+    width: 567px;
+    height: 667px;
+}
+
+#post-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* 수직 선 추가 */
+#post-form .left::after {
+    content: "";
+    border-right: 1px solid #ccc;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
