@@ -8,19 +8,24 @@ function addPost() {
     if (name && group && date && imageInput.files.length > 0 && link) {
         var imageFile = imageInput.files[0];
 
-        // 게시물 데이터를 생성
-        var post = {
-            name: name,
-            group: group,
-            date: date,
-            imageUrl: URL.createObjectURL(imageFile),
-            link: link
-        };
-
-        // 로컬 스토리지에 게시물 데이터 저장
-        var posts = JSON.parse(localStorage.getItem("posts")) || [];
-        posts.push(post);
-        localStorage.setItem("posts", JSON.stringify(posts));
+        //file
+        const reader = new FileReader();
+        reader.readAsDataURL(imageFile);
+        reader.onload = () => {
+            // 게시물 데이터를 생성
+            var post = {
+                name: name,
+                group: group,
+                date: date,
+                image: reader.result,
+                link: link
+            };
+    
+            // 로컬 스토리지에 게시물 데이터 저장
+            var posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.push(post);
+            localStorage.setItem("posts", JSON.stringify(posts));
+        }
 
         // 입력 필드 초기화
         document.getElementById("name").value = "";
@@ -51,8 +56,6 @@ function deletePost(index) {
         location.reload();
     }
 }
-
-
 
 // 이미지 파일 업로드 시 이미지 미리보기
 document.getElementById("image").addEventListener("change", function() {
