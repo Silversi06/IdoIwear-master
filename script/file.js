@@ -55,11 +55,13 @@ function deletePost(index) {
 
 
 // 이미지 파일 업로드 시 이미지 미리보기
-document.getElementById("image").addEventListener("change", function() {
+document.getElementById("image").addEventListener("change", function(event) {
     var imageInput = document.getElementById("image");
     var uploadedImage = document.getElementById("uploaded-image");
     if (imageInput.files.length > 0) {
         var imageFile = imageInput.files[0];
+        console.log("imageFile", imageFile);
+        
         uploadedImage.src = URL.createObjectURL(imageFile);
     }
 });
