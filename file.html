@@ -10,19 +10,18 @@
     <div id="post-form">
         <div class="left">
             <label for="image" class="image-button">
-                <input type="file" id="image" accept="image/*" style="display: none;">
-                <img src="file_img/file.png" alt="이미지 업로드" style="width: 567px; height: 667px;">
+                <input type="file" id="image"  style="display: none;">
+                <img id="uploaded-image" src="file_img/file.png" alt="이미지 업로드" style="width: 567px; height: 667px;">
             </label>
         </div>
         <div class="right">
             <input type="text" id="name" placeholder="이름" style="font-size: 60px;">
             <input type="text" id="group" placeholder="그룹" style="font-size: 60px;">
-            <input type="text" id="date" placeholder="날짜" style="font-size: 60px;">
+            <input type="date" id="date" placeholder="날짜" style="font-size: 60px;">
             <input type="text" id="link" placeholder="링크" style="font-size: 60px;">
-            <a href="push.html"><button onclick="addPost()">게시물 추가</button></a>
+            <button onclick="addPost()">게시물 추가</button>
         </div>
     </div>
-  
     
     <div id="posts">
         <!-- 게시물이 여기에 추가됩니다. -->

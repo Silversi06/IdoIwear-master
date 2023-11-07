@@ -7,6 +7,7 @@ function addPost() {
 
     if (name && group && date && imageInput.files.length > 0 && link) {
         var imageFile = imageInput.files[0];
+        console.log("imageFile", imageFile);
 
         // 게시물 데이터를 생성
         var post = {
@@ -16,6 +17,7 @@ function addPost() {
             imageUrl: URL.createObjectURL(imageFile),
             link: link
         };
+        console.log(post.imageUrl);
 
         // 로컬 스토리지에 게시물 데이터 저장
         var posts = JSON.parse(localStorage.getItem("posts")) || [];
@@ -30,7 +32,7 @@ function addPost() {
         document.getElementById("link").value = "";
 
         // 이미지 초기화
-        document.getElementById("uploaded-image").src = "upload.png";
+        // document.getElementById("uploaded-image").src = "upload.png";
 
         // 게시물 추가 후 "추천 게시물" 페이지로 이동
         window.location.href = "push.html";
@@ -60,6 +62,8 @@ document.getElementById("image").addEventListener("change", function() {
     var uploadedImage = document.getElementById("uploaded-image");
     if (imageInput.files.length > 0) {
         var imageFile = imageInput.files[0];
-        uploadedImage.src = URL.createObjectURL(imageFile);
+        var imageUrl = URL.createObjectURL(imageFile); // 이미지 URL 생성
+        uploadedImage.src = imageUrl; // 이미지 URL을 이미지 요소의 src에 할당
     }
 });
+
