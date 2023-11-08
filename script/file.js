@@ -10,19 +10,23 @@ function addPost() {
         console.log("imageFile", imageFile);
 
         // 게시물 데이터를 생성
-        var post = {
-            name: name,
-            group: group,
-            date: date,
-            imageUrl: URL.createObjectURL(imageFile),
-            link: link
-        };
-        console.log(post.imageUrl);
+        const reader = new FileReader();
+        reader.readAsDataURL(imageFile);
+        reader.onload = () => {
+            // 게시물 데이터를 생성
+            var post = {
+                name: name,
+                group: group,
+                date: date,
+                image: reader.result,
+                link: link
+            };
 
-        // 로컬 스토리지에 게시물 데이터 저장
-        var posts = JSON.parse(localStorage.getItem("posts")) || [];
-        posts.push(post);
-        localStorage.setItem("posts", JSON.stringify(posts));
+            // 로컬 스토리지에 게시물 데이터 저장
+            var posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.push(post);
+            localStorage.setItem("posts", JSON.stringify(posts));
+        }
 
         // 입력 필드 초기화
         document.getElementById("name").value = "";
