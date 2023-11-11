@@ -79,7 +79,7 @@
 ## [팀원 및 사용 언어]
 * html
 * css
-*javascript
+* javascript
 
 ---
 
