@@ -48,7 +48,7 @@
     </div>
   </div>
   <script>
- $(document).ready(function () {
+      $(document).ready(function () {
             function updateVisibility() {
                 const tabletWidth = 1023;
                 const allContainer = $('.allContainer');
@@ -57,10 +57,9 @@
                 if (window.innerWidth <= tabletWidth) {
                     allContainer.show();
                     mainSlide.hide();
-                } else {
-                    mainSlide.show();
+                } else  if (window.innerWidth > tabletWidth){
                     allContainer.hide();
-                    
+                    mainSlide.show();
                 }
             }
 
