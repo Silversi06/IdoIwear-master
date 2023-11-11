@@ -48,22 +48,19 @@
     </div>
   </div>
   <script>
-    $(function () {
-            function hideBottomImages() {
-                $('.mainSlide').hide(); // .mainSlide 숨기기
-            }
-
-            function showTopImages() {
-                $('.container .image-wrapper').show(); // 상단 이미지 보이기
-            }
-
+ $(document).ready(function () {
             function updateVisibility() {
                 const tabletWidth = 1023;
+                const allContainer = $('.allContainer');
+                const mainSlide = $('.mainSlide');
 
                 if (window.innerWidth <= tabletWidth) {
-                    hideBottomImages();
+                    allContainer.show();
+                    mainSlide.hide();
                 } else {
-                    showTopImages();
+                    mainSlide.show();
+                    allContainer.hide();
+                    
                 }
             }
 
@@ -71,7 +68,7 @@
             updateVisibility();
 
             // 창 크기 변경 이벤트 핸들러 등록
-            window.addEventListener("resize", updateVisibility);
+            $(window).on("resize", updateVisibility);
         });
   </script>
       
