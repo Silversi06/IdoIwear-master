@@ -49,8 +49,6 @@
   </div>
   <script>
     $(function () {
-            $('.mainSlide').slick();
-
             function hideBottomImages() {
                 $('.mainSlide').hide(); // .mainSlide 숨기기
             }
@@ -61,7 +59,6 @@
 
             function updateVisibility() {
                 const tabletWidth = 1023;
-                const mainSlide = $('.mainSlide');
 
                 if (window.innerWidth <= tabletWidth) {
                     hideBottomImages();
