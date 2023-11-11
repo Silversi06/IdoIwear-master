@@ -5,7 +5,7 @@ header img{
     height: auto;
 }
 main img {
-    width: 500px;
+    width: 400px;
     height: 520px;
   }
   
@@ -20,6 +20,10 @@ main img {
   
 #wear img {
     margin: 40px; /* 이미지 사이에 간격을 설정합니다 */
+}
+a link{
+     text-decoration: none;
+     color:black;
 }
   
 .item1,
