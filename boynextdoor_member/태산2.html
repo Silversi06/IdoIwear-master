@@ -9,28 +9,7 @@
     <title>태산2_정보</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script>
-      $(function(){
-        $('.mainSlide').slick();
     
-        function updateVisibility() {
-          const tabletWidth = 1023; // 변경: 1023px 이하일 때 보이도록 (조절 가능)
-          const mainSlide = document.querySelector('.mainSlide');
-    
-          if (window.innerWidth <= tabletWidth) {
-            mainSlide.style.display = 'block';
-          } else {
-            mainSlide.style.display = 'none';
-          }
-        }
-    
-        // 페이지 로드 시 및 창 크기 변경 시 실행
-        updateVisibility();
-    
-        // 창 크기 변경 이벤트 핸들러 등록
-        window.addEventListener("resize", updateVisibility);
-      });
-    </script>
     
 </head>
 <body>
@@ -73,7 +52,28 @@
       <a href="https://www.lotteon.com/p/product/LO2192404668?sitmNo=LO2192404668_2192404669&ch_no=100065&ch_dtl_no=1000030&entryPoint=pcs&dp_infw_cd=CHT&NaPm=ct%3Dloqfxgk0%7Cci%3D5fb6ddc47ed4d99a3577962f902e364ae33e9de3%7Ctr%3Dslct%7Csn%3D1243359%7Chk%3Dfa5d3307cc215d4396310b2ed0bee5637b4658fd"><button class="custom-button">태산의 "티셔츠" 보러가기</button></a>
     </div>
   </div>
-   
+  <script>
+    $(function(){
+      $('.mainSlide').slick();
+  
+      function updateVisibility() {
+        const tabletWidth = 1023; // 변경: 1023px 이하일 때 보이도록 (조절 가능)
+        const mainSlide = document.querySelector('.mainSlide');
+  
+        if (window.innerWidth <= tabletWidth) {
+          mainSlide.style.display = 'block';
+        } else {
+          mainSlide.style.display = 'none';
+        }
+      }
+  
+      // 페이지 로드 시 및 창 크기 변경 시 실행
+      updateVisibility();
+  
+      // 창 크기 변경 이벤트 핸들러 등록
+      window.addEventListener("resize", updateVisibility);
+    });
+  </script>
       
 </body>
 </html>

@@ -9,28 +9,7 @@
     <title>리우_정보</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script>
-      $(function(){
-        $('.mainSlide').slick();
     
-        function updateVisibility() {
-          const tabletWidth = 1023; // 변경: 1023px 이하일 때 보이도록 (조절 가능)
-          const mainSlide = document.querySelector('.mainSlide');
-    
-          if (window.innerWidth <= tabletWidth) {
-            mainSlide.style.display = 'block';
-          } else {
-            mainSlide.style.display = 'none';
-          }
-        }
-    
-        // 페이지 로드 시 및 창 크기 변경 시 실행
-        updateVisibility();
-    
-        // 창 크기 변경 이벤트 핸들러 등록
-        window.addEventListener("resize", updateVisibility);
-      });
-    </script>
     
 </head>
 <body>
@@ -58,6 +37,28 @@
       <a href="https://product.29cm.co.kr/catalog/2033878?utm_content=conversion_navershopping&BSPRG=NAVERSH&utm_medium=display&BSCCN1=2033878&BSCPN=CMCOM&utm_campaign=conversion_navershopping&utm_source=naver&utm_term=2033878&naver_code=naver_ep&NaPm=ct%3Dlmhryjsw%7Cci%3D152e19385ba29e11129d82a3ab78d2f551c719bc%7Ctr%3Dsls%7Csn%3D248430%7Chk%3D179049ba9d9d694ae1566d67cc1aa98514d25125"><button class="custom-button">리우의 "자켓" 보러가기</button></a>
     </div>
   </div>
+  <script>
+    $(function(){
+      $('.mainSlide').slick();
+  
+      function updateVisibility() {
+        const tabletWidth = 1023; // 변경: 1023px 이하일 때 보이도록 (조절 가능)
+        const mainSlide = document.querySelector('.mainSlide');
+  
+        if (window.innerWidth <= tabletWidth) {
+          mainSlide.style.display = 'block';
+        } else {
+          mainSlide.style.display = 'none';
+        }
+      }
+  
+      // 페이지 로드 시 및 창 크기 변경 시 실행
+      updateVisibility();
+  
+      // 창 크기 변경 이벤트 핸들러 등록
+      window.addEventListener("resize", updateVisibility);
+    });
+  </script>s
    
       
 </body>
